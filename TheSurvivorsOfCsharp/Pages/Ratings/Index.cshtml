@@ -1,0 +1,114 @@
+﻿@page
+@model TheSurvivorsOfCsharp.Pages.Ratings.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Rating[0].Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rating[0].Grade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rating[0].Comment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rating[0].Semester)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rating[0].OverallRating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rating[0].ContactHours)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rating[0].SelfStudyHours)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rating[0].Organized)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rating[0].Learned)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rating[0].Interesting)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rating[0].Presentation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rating[0].PassedFirstTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rating[0].Course)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rating[0].Student)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Rating) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Grade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Semester)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OverallRating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactHours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SelfStudyHours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Organized)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Learned)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Interesting)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Presentation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PassedFirstTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Course.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.ID)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
