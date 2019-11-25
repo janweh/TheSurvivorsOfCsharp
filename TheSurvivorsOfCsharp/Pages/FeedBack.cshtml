@@ -3,13 +3,100 @@
 @{
     ViewData["Title"] = "FeedBack";
 }
-    <h1>@ViewData["Title"]</h1>
-    <div class="container">
-        <h1 class="mt-4 mb-3">
-            Feedback
-        </h1>
-        <hr />
 
+
+<div class="container">
+    <h1 class="mt-4 mb-3">
+        Feedback
+        <small>Let us know how we're doing.</small>
+    </h1>
+    <hr />
+    <div class="row text-center">
+        <p>We care about what you thoughts and feelings - let us know how we can better help you.</p>
+        <br />
+        <form name="sentMessage" id="contactForm" novalidate>
+            <div class="control-group form-group">
+                <div class="controls">
+                    <label>Your Name:</label>
+                    <input type="text" class="form-control" id="name" required data-validation-required-message="Please enter your name.">
+                    <p class="help-block"></p>
+                </div>
+            </div>
+            <div class="control-group form-group">
+                <div class="controls">
+                    <label>Phone Number:</label>
+                    <input type="tel" class="form-control" id="phone" required data-validation-required-message="Please enter your phone number.">
+                </div>
+            </div>
+            <div class="control-group form-group">
+                <div class="controls">
+                    <label>Email:</label>
+                    <input type="email" class="form-control" id="email" required data-validation-required-message="Please enter your email address.">
+                </div>
+            </div>
+            <div class="control-group form-group">
+                <label><strong>Informative</strong> - Was the information easy to find?</label>
+                <div class="controls">
+                    <select class="form-control">
+                        <option value="1">Strongly agree</option>
+                        <option value="1">Agree somewhat</option>
+                        <option value="1">Neither agree nor disagree</option>
+                        <option value="1">Disagree somewhat</option>
+                        <option value="1">Strongly disagree</option>
+                    </select>
+                </div>
+            </div>
+            <div class="control-group form-group">
+                <label><strong>Accurate</strong> - Is the information you found here still up to date?</label>
+                <div class="controls">
+                    <select class="form-control">
+                        <option value="1">Strongly agree</option>
+                        <option value="1">Agree somewhat</option>
+                        <option value="1">Neither agree nor disagree</option>
+                        <option value="1">Disagree somewhat</option>
+                        <option value="1">Strongly disagree</option>
+                    </select>
+                </div>
+            </div>
+            <div class="control-group form-group">
+                <label><strong>Helpful</strong> - Were other student reviews helpful?</label>
+                <div class="controls">
+                    <select class="form-control">
+                        <option value="1">Strongly agree</option>
+                        <option value="1">Agree somewhat</option>
+                        <option value="1">Neither agree nor disagree</option>
+                        <option value="1">Disagree somewhat</option>
+                        <option value="1">Strongly disagree</option>
+                    </select>
+                </div>
+            </div>
+            <div class="control-group form-group">
+                <label><strong>Presentation</strong> - How do you like the design of this webpage overall?</label>
+                <div class="controls">
+                    <select class="form-control">
+                        <option value="1">Great</option>
+                        <option value="1">Good</option>
+                        <option value="1">Neutral</option>
+                        <option value="1">Fair</option>
+                        <option value="1">Poor</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="control-group form-group">
+                <div class="controls">
+                    <label>Other Feedback:</label>
+                    <textarea rows="5" cols="100" class="form-control" id="message" required data-validation-required-message="Please enter your message" maxlength="999" style="resize:none"></textarea>
+                </div>
+            </div>
+
+            <div id="success"></div>
+            <button type="submit" class="btn btn-success" id="sendMessageButton">Submit Feedback</button>
+            <br />
+            <br />
+            <br />
+            <br />
+        </form>
+        
     </div>
-
-
+</div>
