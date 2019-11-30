@@ -19,10 +19,10 @@ namespace TheSurvivorsOfCsharp.Data
 
             var universities = new University[]
             {
-                new University{ID=1, Name="Vilnius University"},
-                new University{ID=2, Name="Kaunas University of Technology"},
-                new University{ID=3, Name="Klaipėda University"},
-                new University{ID=4, Name="Šiauliai University"}
+                new University{Name="Vilnius University"},
+                new University{Name="Kaunas University of Technology"},
+                new University{Name="Klaipėda University"},
+                new University{Name="Šiauliai University"}
             };
             foreach(University u in universities)
             {
@@ -32,15 +32,15 @@ namespace TheSurvivorsOfCsharp.Data
 
             var majors = new Major[]
             {
-                new Major{ID=1, Name="Computer Sience"},
-                new Major{ID=2, Name="Medicine"},
-                new Major{ID=3, Name="Biology"},
-                new Major{ID=4, Name="Business administration"},
-                new Major{ID=5, Name="Economy"},
-                new Major{ID=6, Name="Chemistry"},
-                new Major{ID=7, Name="Physics"},
-                new Major{ID=8, Name="Teaching"},
-                new Major{ID=9, Name="Mathematics"}
+                new Major{Name="Computer Sience"},
+                new Major{Name="Medicine"},
+                new Major{Name="Biology"},
+                new Major{Name="Business administration"},
+                new Major{Name="Economy"},
+                new Major{Name="Chemistry"},
+                new Major{Name="Physics"},
+                new Major{Name="Teaching"},
+                new Major{Name="Mathematics"}
             };
             foreach(Major m in majors)
             {
@@ -74,13 +74,13 @@ namespace TheSurvivorsOfCsharp.Data
 
             var lecturers = new Lecturer[]
             {
-                new Lecturer{ID=1, TitleAndName="Donatas Kimutis", UniversityID=1},
-                new Lecturer{ID=2, TitleAndName="Vytautas Ašeris", UniversityID=1},
-                new Lecturer{ID=3, TitleAndName="Eduardas Kutka", UniversityID=1},
-                new Lecturer{ID=4, TitleAndName="Dr. Linas Bukauskas", UniversityID=1},
-                new Lecturer{ID=5, TitleAndName="Dr. Agnė Brilingaitė", UniversityID=1},
-                new Lecturer{ID=6, TitleAndName="prof.dr. Rasa Subačienė", UniversityID=1},
-                new Lecturer{ID=7, TitleAndName="Birutė Vilčiauskaitė", UniversityID=1}
+                new Lecturer{TitleAndName="Birutė Vilčiauskaitė", UniversityID=1},
+                new Lecturer{TitleAndName="prof.dr. Rasa Subačienė", UniversityID=1},
+                new Lecturer{TitleAndName="Dr. Agnė Brilingaitė", UniversityID=1},
+                new Lecturer{TitleAndName="Dr. Linas Bukauskas", UniversityID=1},
+                new Lecturer{TitleAndName="Eduardas Kutka", UniversityID=1},
+                new Lecturer{TitleAndName="Vytautas Ašeris", UniversityID=1},
+                new Lecturer{TitleAndName="Donatas Kimutis", UniversityID=1}
             };
             foreach(Lecturer l in lecturers)
             {
@@ -90,11 +90,11 @@ namespace TheSurvivorsOfCsharp.Data
 
             var courses = new Course[]
             {
-                new Course{ID=1, Name="Applied object-oriented programming", UniversityID=1},
-                new Course{ID=2, Name="Computer Networks", UniversityID=1},
-                new Course{ID=3, Name="Database Management Systems", UniversityID=1},
-                new Course{ID=4, Name="Accounting", UniversityID=1},
-                new Course{ID=5, Name="Management", UniversityID=1}
+                new Course{Name="Management", UniversityID=1},
+                new Course{Name="Accounting", UniversityID=1},
+                new Course{Name="Database Management Systems", UniversityID=1},
+                new Course{Name="Computer Networks", UniversityID=1},
+                new Course{Name="Applied object-oriented programming", UniversityID=1}
             };
             foreach(Course c in courses)
             {
@@ -134,13 +134,13 @@ namespace TheSurvivorsOfCsharp.Data
 
             var students = new Student[]
             {
-                new Student{ID=1, UserName="Jan Wehner", UniversityID=1, 
+                new Student{UserName="Jan Wehner", UniversityID=1, 
                     AreaOfStudies="Mathematics and computer sciences", Email="jan.wehner@tprs.stud.vu.lt",
                     Password="highlyEncryptedPassword"},
-                new Student{ID=2, UserName="Bernadas", UniversityID=2, 
+                new Student{UserName="Bernadas", UniversityID=2, 
                     AreaOfStudies="Mathematics and computer sciences", Email="someemail@email.com",
                     Password="unbreakablepassword"},
-                new Student{ID=3, UserName="Max Mustermann", UniversityID=1,
+                new Student{UserName="Max Mustermann", UniversityID=1,
                     AreaOfStudies="Mathematics and computer sciences", Email="musteremail@gmail.com",
                     Password="password1"}
             };

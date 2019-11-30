@@ -18,16 +18,16 @@
             @Html.DisplayFor(model => model.Course.Name)
         </dd>
         <dt class="col-sm-4">
-            @Html.DisplayNameFor(model => model.Course.Since)
-        </dt>
-        <dd class="col-sm-8">
-            @Html.DisplayFor(model => model.Course.Since)
-        </dd>
-        <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model.Course.University)
         </dt>
         <dd class="col-sm-8">
             @Html.DisplayFor(model => model.Course.University.Name)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Course.Since)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Course.Since)
         </dd>
         <dt class="col-sm-4">
             Overall rating
@@ -71,9 +71,6 @@
         <dd class="col-sm-8">
             @Html.DisplayFor(model => model.Presented)
         </dd>
-        <dt>
-            
-        </dt>
     </dl>
 </div>
 <div>
