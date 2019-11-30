@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using TheSurvivorsOfCsharp.Data;
 using TheSurvivorsOfCsharp.Model;
 
-namespace TheSurvivorsOfCsharp.Pages.Courses
+namespace TheSurvivorsOfCsharp.Pages.CourseLecturers
 {
     public class CreateModel : PageModel
     {
@@ -21,12 +21,12 @@ namespace TheSurvivorsOfCsharp.Pages.Courses
 
         public IActionResult OnGet()
         {
-        ViewData["UniversityID"] = new SelectList(_context.University, "ID", "ID");
+        ViewData["LecturerID"] = new SelectList(_context.Lecturer, "ID", "ID");
             return Page();
         }
 
         [BindProperty]
-        public Course Course { get; set; }
+        public CourseLecturer CourseLecturer { get; set; }
 
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
@@ -37,7 +37,7 @@ namespace TheSurvivorsOfCsharp.Pages.Courses
                 return Page();
             }
 
-            _context.Course.Add(Course);
+            _context.CourseLecturer.Add(CourseLecturer);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

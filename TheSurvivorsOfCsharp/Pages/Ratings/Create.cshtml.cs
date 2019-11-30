@@ -22,7 +22,7 @@ namespace TheSurvivorsOfCsharp.Pages.Ratings
         public IActionResult OnGet()
         {
         ViewData["CourseID"] = new SelectList(_context.Course, "ID", "ID");
-        ViewData["StudentID"] = new SelectList(_context.Set<Student>(), "ID", "ID");
+        ViewData["StudentID"] = new SelectList(_context.Student, "ID", "ID");
             return Page();
         }
 

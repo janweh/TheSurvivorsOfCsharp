@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using TheSurvivorsOfCsharp.Data;
 using TheSurvivorsOfCsharp.Model;
 
-namespace TheSurvivorsOfCsharp.Pages.Courses
+namespace TheSurvivorsOfCsharp.Pages.CourseLecturers
 {
     public class IndexModel : PageModel
     {
@@ -19,12 +19,12 @@ namespace TheSurvivorsOfCsharp.Pages.Courses
             _context = context;
         }
 
-        public IList<Course> Course { get;set; }
+        public IList<CourseLecturer> CourseLecturer { get;set; }
 
         public async Task OnGetAsync()
         {
-            Course = await _context.Course
-                .Include(c => c.University).ToListAsync();
+            CourseLecturer = await _context.CourseLecturer
+                .Include(c => c.Lecturer).ToListAsync();
         }
     }
 }

@@ -11,30 +11,69 @@
     <h4>Course</h4>
     <hr />
     <dl class="row">
-        <dt class="col-sm-2">
+        <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model.Course.Name)
         </dt>
-        <dd class="col-sm-10">
+        <dd class="col-sm-8">
             @Html.DisplayFor(model => model.Course.Name)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model.Course.Since)
         </dt>
-        <dd class="col-sm-10">
+        <dd class="col-sm-8">
             @Html.DisplayFor(model => model.Course.Since)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model.Course.University)
         </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Course.University.ID)
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Course.University.Name)
         </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Course.Lecturer)
+        <dt class="col-sm-4">
+            Overall rating
         </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Course.Lecturer.ID)
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.OverallRating)
         </dd>
+        <dt class="col-sm-4">
+            Contact hours
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.ContactHours)
+        </dd>
+        <dt class="col-sm-4">
+            Self study hours
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.SelfStudyHours)
+        </dd>
+        <dt class="col-sm-4">
+            How well the course was organized
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Organized)
+        </dd>
+        <dt class="col-sm-4">
+            How much was learned in the course
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Learned)
+        </dd>
+        <dt class="col-sm-4">
+            How interesting the course was
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Interesting)
+        </dd>
+        <dt class="col-sm-4">
+            How well the lecturer presented the content
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Presented)
+        </dd>
+        <dt>
+            
+        </dt>
     </dl>
 </div>
 <div>

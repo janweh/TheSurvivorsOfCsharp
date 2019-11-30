@@ -37,7 +37,7 @@ namespace TheSurvivorsOfCsharp.Pages.Lecturers
             {
                 return NotFound();
             }
-           ViewData["UniversityID"] = new SelectList(_context.Set<University>(), "ID", "ID");
+           ViewData["UniversityID"] = new SelectList(_context.University, "ID", "ID");
             return Page();
         }
 

@@ -11,11 +11,10 @@ namespace TheSurvivorsOfCsharp.Model
         public string Name { get; set; }
         public int Since { get; set; }
         public int? UniversityID { get; set; }
-        public int LecturerID { get; set; }
 
         public virtual University University { get; set; }
-        public virtual Lecturer Lecturer { get; set; }
         public virtual ICollection<Rating> Ratings { get; set; }
         public virtual ICollection<CourseMajor> CourseMajors { get; set; }
+        public virtual ICollection<CourseLecturer> CourseLecturers { get; set; }
     }
 }

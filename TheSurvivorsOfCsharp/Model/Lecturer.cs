@@ -12,6 +12,6 @@ namespace TheSurvivorsOfCsharp.Model
         public int UniversityID { get; set; }
 
         public virtual University University { get; set; }
-        public virtual ICollection<Course> Courses { get; set; }
+        public virtual ICollection<CourseLecturer> CourseLecturers { get; set; }
     }
 }
