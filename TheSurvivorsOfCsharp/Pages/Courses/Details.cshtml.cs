@@ -54,7 +54,7 @@ namespace TheSurvivorsOfCsharp.Pages.Courses
                      on cM.MajorID equals m.ID
                      where cM.CoursID == id
                      select m;
-             
+            
             Lecturers = from cL in _context.CourseLecturer
                         join l in _context.Lecturer
                         on cL.LecturerID equals l.ID
