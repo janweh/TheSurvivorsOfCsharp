@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using TheSurvivorsOfCsharp.Data;
 using TheSurvivorsOfCsharp.Model;
 
-namespace TheSurvivorsOfCsharp.Pages.Courses
+namespace TheSurvivorsOfCsharp.Pages.CourseLecturers
 {
     public class DeleteModel : PageModel
     {
@@ -20,7 +20,7 @@ namespace TheSurvivorsOfCsharp.Pages.Courses
         }
 
         [BindProperty]
-        public Course Course { get; set; }
+        public CourseLecturer CourseLecturer { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -29,10 +29,10 @@ namespace TheSurvivorsOfCsharp.Pages.Courses
                 return NotFound();
             }
 
-            Course = await _context.Course
-                .Include(c => c.University).FirstOrDefaultAsync(m => m.ID == id);
+            CourseLecturer = await _context.CourseLecturer
+                .Include(c => c.Lecturer).FirstOrDefaultAsync(m => m.ID == id);
 
-            if (Course == null)
+            if (CourseLecturer == null)
             {
                 return NotFound();
             }
@@ -46,11 +46,11 @@ namespace TheSurvivorsOfCsharp.Pages.Courses
                 return NotFound();
             }
 
-            Course = await _context.Course.FindAsync(id);
+            CourseLecturer = await _context.CourseLecturer.FindAsync(id);
 
-            if (Course != null)
+            if (CourseLecturer != null)
             {
-                _context.Course.Remove(Course);
+                _context.CourseLecturer.Remove(CourseLecturer);
                 await _context.SaveChangesAsync();
             }
 

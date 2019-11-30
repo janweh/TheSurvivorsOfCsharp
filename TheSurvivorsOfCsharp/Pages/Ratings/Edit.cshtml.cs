@@ -39,7 +39,7 @@ namespace TheSurvivorsOfCsharp.Pages.Ratings
                 return NotFound();
             }
            ViewData["CourseID"] = new SelectList(_context.Course, "ID", "ID");
-           ViewData["StudentID"] = new SelectList(_context.Set<Student>(), "ID", "ID");
+           ViewData["StudentID"] = new SelectList(_context.Student, "ID", "ID");
             return Page();
         }
 

@@ -14,7 +14,6 @@ namespace TheSurvivorsOfCsharp.Data
         {
         }
 
-        public DbSet<TheSurvivorsOfCsharp.Model.Lecturer> Lecturer { get; set; }
 
         public DbSet<TheSurvivorsOfCsharp.Model.Major> Major { get; set; }
 
@@ -28,6 +27,11 @@ namespace TheSurvivorsOfCsharp.Data
 
         public DbSet<TheSurvivorsOfCsharp.Model.MajorUniversity> MajorUniversity { get; set; }
 
+        public DbSet<TheSurvivorsOfCsharp.Model.Lecturer> Lecturer { get; set; }
+
         public DbSet<TheSurvivorsOfCsharp.Model.Course> Course { get; set; }
+
+        public DbSet<TheSurvivorsOfCsharp.Model.CourseLecturer> CourseLecturer { get; set; }
+
     }
 }

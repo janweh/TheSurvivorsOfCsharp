@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using TheSurvivorsOfCsharp.Data;
 using TheSurvivorsOfCsharp.Model;
 
-namespace TheSurvivorsOfCsharp.Pages.Courses
+namespace TheSurvivorsOfCsharp.Pages.CourseLecturers
 {
     public class EditModel : PageModel
     {
@@ -21,7 +21,7 @@ namespace TheSurvivorsOfCsharp.Pages.Courses
         }
 
         [BindProperty]
-        public Course Course { get; set; }
+        public CourseLecturer CourseLecturer { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -30,14 +30,14 @@ namespace TheSurvivorsOfCsharp.Pages.Courses
                 return NotFound();
             }
 
-            Course = await _context.Course
-                .Include(c => c.University).FirstOrDefaultAsync(m => m.ID == id);
+            CourseLecturer = await _context.CourseLecturer
+                .Include(c => c.Lecturer).FirstOrDefaultAsync(m => m.ID == id);
 
-            if (Course == null)
+            if (CourseLecturer == null)
             {
                 return NotFound();
             }
-           ViewData["UniversityID"] = new SelectList(_context.University, "ID", "ID");
+           ViewData["LecturerID"] = new SelectList(_context.Lecturer, "ID", "ID");
             return Page();
         }
 
@@ -50,7 +50,7 @@ namespace TheSurvivorsOfCsharp.Pages.Courses
                 return Page();
             }
 
-            _context.Attach(Course).State = EntityState.Modified;
+            _context.Attach(CourseLecturer).State = EntityState.Modified;
 
             try
             {
@@ -58,7 +58,7 @@ namespace TheSurvivorsOfCsharp.Pages.Courses
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CourseExists(Course.ID))
+                if (!CourseLecturerExists(CourseLecturer.ID))
                 {
                     return NotFound();
                 }
@@ -71,9 +71,9 @@ namespace TheSurvivorsOfCsharp.Pages.Courses
             return RedirectToPage("./Index");
         }
 
-        private bool CourseExists(int id)
+        private bool CourseLecturerExists(int id)
         {
-            return _context.Course.Any(e => e.ID == id);
+            return _context.CourseLecturer.Any(e => e.ID == id);
         }
     }
 }
