@@ -8,20 +8,34 @@
 <h1>Details</h1>
 
 <div>
-    <h4>Course</h4>
+    <h4>@Html.DisplayFor(model => model.Course.Name)</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-4">
-            @Html.DisplayNameFor(model => model.Course.Name)
+            @Html.DisplayNameFor(model => model.Lecturers)
         </dt>
         <dd class="col-sm-8">
-            @Html.DisplayFor(model => model.Course.Name)
+            <ul style="list-style: none; margin: 0; padding: 0;">
+                @foreach (var lecturer in Model.Lecturers)
+                {   
+                <li>
+                    @lecturer.TitleAndName
+                </li>
+                }
+            </ul>
         </dd>
         <dt class="col-sm-4">
-            @Html.DisplayNameFor(model => model.Course.University)
+            Majors that include this Course
         </dt>
         <dd class="col-sm-8">
-            @Html.DisplayFor(model => model.Course.University.Name)
+            <ul style="list-style: none; padding: 0;">
+                @foreach (var major in Model.Majors)
+                {
+                    <li>
+                        @major.Name
+                    </li>
+                }
+            </ul>
         </dd>
         <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model.Course.Since)
@@ -74,6 +88,5 @@
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Course.ID">Edit</a> |
     <a asp-page="./Index">Back to List</a>
 </div>
