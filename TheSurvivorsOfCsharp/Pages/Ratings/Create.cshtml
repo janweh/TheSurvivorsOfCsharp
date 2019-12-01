@@ -5,37 +5,17 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>Rate</h1>
 
-<h4>Rating</h4>
+<h4>@Html.DisplayFor(model => model.Course.Name)</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Rating.Date" class="control-label"></label>
-                <input asp-for="Rating.Date" class="form-control" />
-                <span asp-validation-for="Rating.Date" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Rating.Grade" class="control-label"></label>
-                <input asp-for="Rating.Grade" class="form-control" />
-                <span asp-validation-for="Rating.Grade" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Rating.Comment" class="control-label"></label>
-                <input asp-for="Rating.Comment" class="form-control" />
-                <span asp-validation-for="Rating.Comment" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Rating.Semester" class="control-label"></label>
-                <input asp-for="Rating.Semester" class="form-control" />
-                <span asp-validation-for="Rating.Semester" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="Rating.OverallRating" class="control-label"></label>
-                <input asp-for="Rating.OverallRating" class="form-control" />
+                <select asp-for="Rating.OverallRating" class="form-control" asp-items="ViewBag.OverallRating"></select>
                 <span asp-validation-for="Rating.OverallRating" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -50,23 +30,34 @@
             </div>
             <div class="form-group">
                 <label asp-for="Rating.Organized" class="control-label"></label>
-                <input asp-for="Rating.Organized" class="form-control" />
+                <select asp-for="Rating.Organized" class="form-control" asp-items="ViewBag.Organized"></select>
                 <span asp-validation-for="Rating.Organized" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Rating.Learned" class="control-label"></label>
-                <input asp-for="Rating.Learned" class="form-control" />
+                <select asp-for="Rating.Learned" class="form-control" asp-items="ViewBag.Learned"></select>
                 <span asp-validation-for="Rating.Learned" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Rating.Interesting" class="control-label"></label>
-                <input asp-for="Rating.Interesting" class="form-control" />
+                <select asp-for="Rating.Interesting" class="form-control" asp-items="ViewBag.Interesting"></select>
                 <span asp-validation-for="Rating.Interesting" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Rating.Presentation" class="control-label"></label>
-                <input asp-for="Rating.Presentation" class="form-control" />
+                <select asp-for="Rating.Presentation" class="form-control" asp-items="ViewBag.Presentation"></select>
                 <span asp-validation-for="Rating.Presentation" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Rating.Semester" class="control-label"></label>
+                <input asp-for="Rating.Semester" class="form-control" />
+                <span asp-validation-for="Rating.Semester" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rating.Grade" class="control-label"></label>
+                <select asp-for="Rating.Grade" class="form-control" asp-items="ViewBag.Grade"></select>
+                <span asp-validation-for="Rating.Grade" class="text-danger"></span>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
@@ -74,12 +65,9 @@
                 </label>
             </div>
             <div class="form-group">
-                <label asp-for="Rating.CourseID" class="control-label"></label>
-                <select asp-for="Rating.CourseID" class ="form-control" asp-items="ViewBag.CourseID"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="Rating.StudentID" class="control-label"></label>
-                <select asp-for="Rating.StudentID" class ="form-control" asp-items="ViewBag.StudentID"></select>
+                <label asp-for="Rating.Comment" class="control-label"></label>
+                <input asp-for="Rating.Comment" class="form-control" />
+                <span asp-validation-for="Rating.Comment" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
