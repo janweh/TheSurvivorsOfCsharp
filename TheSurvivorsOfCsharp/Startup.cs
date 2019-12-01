@@ -29,6 +29,11 @@ namespace TheSurvivorsOfCsharp
 
             services.AddDbContext<TheSurvivorsOfCsharpContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("TheSurvivorsOfCsharpContext")));
+
+            services.AddMvc().AddRazorPagesOptions(options =>
+            {
+                options.Conventions.AddPageRoute("/Courses/Index", "");
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
