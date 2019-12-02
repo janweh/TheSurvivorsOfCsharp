@@ -120,11 +120,11 @@ namespace TheSurvivorsOfCsharp.Data
 
             var courseMajors = new CourseMajor[]
             {
-                new CourseMajor{CoursID=1, MajorID=1},
-                new CourseMajor{CoursID=2, MajorID=1},
-                new CourseMajor{CoursID=3, MajorID=1},
-                new CourseMajor{CoursID=4, MajorID=4},
-                new CourseMajor{CoursID=5, MajorID=4}
+                new CourseMajor{CoursID=1, MajorID=4},
+                new CourseMajor{CoursID=2, MajorID=4},
+                new CourseMajor{CoursID=3, MajorID=4},
+                new CourseMajor{CoursID=4, MajorID=1},
+                new CourseMajor{CoursID=5, MajorID=1}
             };
             foreach(CourseMajor cM in courseMajors)
             {
