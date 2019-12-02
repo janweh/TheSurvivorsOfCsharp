@@ -19,8 +19,16 @@
         <div class="container">
             <div class="row">
                 <form>
-                    University: 
+                    University:
                     <select asp-for="University" asp-items="Model.Universities">
+                        <option value=""></option>
+                    </select>
+                    Major:
+                    <select asp-for="Major" asp-items="Model.Majors">
+                        <option value=""></option>
+                    </select>
+                    Lecturer:
+                    <select asp-for="Lecturer" asp-items="Model.Lecturers">
                         <option value=""></option>
                     </select>
                     Title: <input type="text" asp-for="SearchString" />
