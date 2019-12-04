@@ -34,26 +34,28 @@
         </div>
     </div>
     <table class="table" id="table1">
+        <thead>
             <tr>
                 <th>Name</th>
                 <th>Since</th>
-                <th>University</th> 
+                <th>University</th>
             </tr>
-
-
+        </thead>
+        <tbody>
             @foreach (var item in Model.Course)
             {
-                <tr>
-                    <td id="first"><a asp-page="./Details" asp-route-id="@item.ID">@item.Name</a></td>
+                <tr id="1">
+                    <td><a asp-page="./Details" asp-route-id="@item.ID">@item.Name</a></td>
                     <td>
-                        @{ 
+                        @{
                             string semester = Model.SemesterName(item.Since);
                         }
                         @semester
                     </td>
-                    <td>@item.University.Name</td> 
+                    <td>@item.University.Name</td>
                 </tr>
             }
+        </tbody>
     </table>
     
 
@@ -65,7 +67,7 @@
         $(".search").on("keyup", function ()
         {
             var datasearch = $(this).val().toLowerCase();
-            $("#table1 tr").each(function ()
+            $("#table1 #1").each(function ()
             {
                 var stringdata = $(this).text().toLowerCase();
                 if (stringdata.indexOf(datasearch) === -1) {
