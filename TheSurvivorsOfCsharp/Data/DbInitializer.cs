@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TheSurvivorsOfCsharp.Helpers;
 using TheSurvivorsOfCsharp.Model;
 
 namespace TheSurvivorsOfCsharp.Data
@@ -90,11 +91,11 @@ namespace TheSurvivorsOfCsharp.Data
 
             var courses = new Course[]
             {
-                new Course{Name="Management", UniversityID=1},
-                new Course{Name="Accounting", UniversityID=1},
-                new Course{Name="Database Management Systems", UniversityID=1},
-                new Course{Name="Computer Networks", UniversityID=1},
-                new Course{Name="Applied object-oriented programming", UniversityID=1}
+                new Course{Name="Management", UniversityID=1, Since=Semester.WS1415},
+                new Course{Name="Accounting", UniversityID=1, Since=Semester.SS13},
+                new Course{Name="Database Management Systems", UniversityID=1, Since=Semester.SS13},
+                new Course{Name="Computer Networks", UniversityID=1, Since=Semester.SS19},
+                new Course{Name="Applied object-oriented programming", UniversityID=1, Since=Semester.WS1718}
             };
             foreach(Course c in courses)
             {
@@ -153,13 +154,13 @@ namespace TheSurvivorsOfCsharp.Data
             var ratings = new Rating[]
             {
                 new Rating{ StudentID=1, CourseID=1, OverallRating=5, Interesting=5, Learned=5, Organized=4,
-                Presentation=3, ContactHours=4, SelfStudyHours=10, Semester=1, Comment="Good course", 
+                Presentation=3, ContactHours=4, SelfStudyHours=10, Semester=Semester.WS1920, Comment="Good course", 
                 Grade=8, PassedFirstTime=false, Date=DateTime.Now},
                 new Rating{ StudentID=2, CourseID=1, OverallRating=5, Interesting=4, Learned=5, Organized=4,
-                Presentation=4, ContactHours=3, SelfStudyHours=8, Semester=1, Comment="Nice course",
+                Presentation=4, ContactHours=3, SelfStudyHours=8, Semester=Semester.WS1819, Comment="Nice course",
                 Grade=9, PassedFirstTime=true, Date=DateTime.Now},
                 new Rating{ StudentID=3, CourseID=1, OverallRating=3, Interesting=5, Learned=5, Organized=2,
-                Presentation=4, ContactHours=4, SelfStudyHours=11, Semester=1, Comment="A nice course",
+                Presentation=4, ContactHours=4, SelfStudyHours=11, Semester=Semester.WS1920, Comment="A nice course",
                 Grade=3, PassedFirstTime=false, Date=DateTime.Now}
             };
             foreach(Rating r in ratings)

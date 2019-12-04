@@ -58,7 +58,10 @@
                             <a asp-page="./Details" asp-route-id="@item.ID">@Html.DisplayFor(modelItem => item.Name)</a>
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Since)
+                            @{ 
+                                string semester = Model.SemesterName(item.Since);
+                            }
+                            @Html.DisplayFor(modelItem => semester)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.University.Name)
