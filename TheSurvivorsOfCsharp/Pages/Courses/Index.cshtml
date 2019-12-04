@@ -1,73 +1,81 @@
 ﻿@page "Home"
 @model TheSurvivorsOfCsharp.Pages.Courses.IndexModel
 
-@{
-    ViewData["Title"] = "Index";
-}
-
 @*add more data here:<p>
         <a asp-page="Create">Create New</a>
     </p>*@
-    <body>
-        <header>
-            <div class="text-center mt-4 mb-3">
-                <h1>Quick Search</h1>
-            </div>
-            <hr />
-        </header>
-
-        <div class="container">
-            <div class="row">
-                <form>
-                    University:
-                    <select asp-for="University" asp-items="Model.Universities">
-                        <option value=""></option>
-                    </select>
-                    Major:
-                    <select asp-for="Major" asp-items="Model.Majors">
-                        <option value=""></option>
-                    </select>
-                    Lecturer:
-                    <select asp-for="Lecturer" asp-items="Model.Lecturers">
-                        <option value=""></option>
-                    </select>
-                    Title: <input type="text" asp-for="SearchString" />
-                    <input type="submit" value="Filter" />
-                </form>
-            </div>
+    
+    
+        <div class="text-center mt-4 mb-3">
+            <h1>Quick Search</h1>
         </div>
-        <table class="table">
-            <thead>
+        <hr />
+        
+    
+
+    <div class="container">
+        <div class="row">
+            <form>
+               University:
+                <select  asp-for="University" asp-items="Model.Universities">
+                    <option value=""></option>
+                </select>
+                Major:
+                <select asp-for="Major" asp-items="Model.Majors">
+                    <option value=""></option>
+                </select>
+                Lecturer:
+                <select asp-for="Lecturer" asp-items="Model.Lecturers">
+                    <option value=""></option>
+                </select> 
+                
+                <input type="text" id="searchrec" class="search" placeholder="Search data.." />
+            </form>
+        </div>
+    </div>
+    <table class="table" id="table1">
+            <tr>
+                <th>Name</th>
+                <th>Since</th>
+                <th>University</th> 
+            </tr>
+
+
+            @foreach (var item in Model.Course)
+            {
                 <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Course[0].Name)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Course[0].Since)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Course[0].University)
-                    </th>
-               </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model.Course)
-                {
-                    <tr>
-                        <td>
-                            <a asp-page="./Details" asp-route-id="@item.ID">@Html.DisplayFor(modelItem => item.Name)</a>
-                        </td>
-                        <td>
-                            @{ 
-                                string semester = Model.SemesterName(item.Since);
-                            }
-                            @Html.DisplayFor(modelItem => semester)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.University.Name)
-                        </td>
-                    </tr>
+                    <td id="first"><a asp-page="./Details" asp-route-id="@item.ID">@item.Name</a></td>
+                    <td>
+                        @{ 
+                            string semester = Model.SemesterName(item.Since);
+                        }
+                        @semester
+                    </td>
+                    <td>@item.University.Name</td> 
+                </tr>
+            }
+    </table>
+    
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function ()
+    {
+        $(".search").on("keyup", function ()
+        {
+            var datasearch = $(this).val().toLowerCase();
+            $("#table1 tr").each(function ()
+            {
+                var stringdata = $(this).text().toLowerCase();
+                if (stringdata.indexOf(datasearch) === -1) {
+                    $(this).hide();
                 }
-            </tbody>
-        </table>
-    </body>
+                else {
+                    $(this).show();
+                }
+            });
+        });
+    });
+
+</script>
