@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using TheSurvivorsOfCsharp.Helpers;
 
 namespace TheSurvivorsOfCsharp.Model
 {
@@ -13,7 +14,7 @@ namespace TheSurvivorsOfCsharp.Model
         public DateTime Date { get; set; }
         public int Grade { get; set; }
         public string Comment { get; set; }
-        public int Semester { get; set; }
+        public Semester Semester { get; set; }
         public int OverallRating { get; set; }
         public int ContactHours { get; set; }
         public int SelfStudyHours { get; set; }

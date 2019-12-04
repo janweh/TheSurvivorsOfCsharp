@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TheSurvivorsOfCsharp.Data;
+using TheSurvivorsOfCsharp.Helpers;
 using TheSurvivorsOfCsharp.Model;
 
 namespace TheSurvivorsOfCsharp.Pages.Ratings
@@ -45,6 +46,14 @@ namespace TheSurvivorsOfCsharp.Pages.Ratings
             ViewData["Presentation"] = new SelectList(new List<int> { 1, 2, 3, 4, 5 });
             ViewData["Interesting"] = new SelectList(new List<int> { 1, 2, 3, 4, 5 });
             ViewData["Learned"] = new SelectList(new List<int> { 1, 2, 3, 4, 5 });
+
+            var enumData = from Semester enumItem in Enum.GetValues(typeof(Semester))
+                           select new
+                           {
+                               Value = (int)enumItem,
+                               Text = enumItem.GetDescription()
+                           };
+            ViewData["Semester"] = new SelectList(enumData, "Value", "Text");
 
             return Page();
         }

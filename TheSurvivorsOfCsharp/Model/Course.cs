@@ -9,7 +9,7 @@ namespace TheSurvivorsOfCsharp.Model
     {
         public int ID { get; set; }
         public string Name { get; set; }
-        public int Since { get; set; }
+        public TheSurvivorsOfCsharp.Helpers.Semester Since { get; set; }
         public int? UniversityID { get; set; }
 
         public virtual University University { get; set; }

@@ -6,8 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using TheSurvivorsOfCsharp.Data;
 using TheSurvivorsOfCsharp.Model;
+using TheSurvivorsOfCsharp.Helpers;
 
 namespace TheSurvivorsOfCsharp.Pages.Courses
 {
@@ -85,6 +85,11 @@ namespace TheSurvivorsOfCsharp.Pages.Courses
             Lecturers = new SelectList(await LecturerQuery.Distinct().ToListAsync());
             Course = await courses
                 .Include(c => c.University).ToListAsync();
+        }
+
+        public string SemesterName(Semester s)
+        {
+            return s.GetDescription();
         }
     }
 }

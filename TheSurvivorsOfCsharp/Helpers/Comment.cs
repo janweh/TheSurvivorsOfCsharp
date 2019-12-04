@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WindowsFormsApp15.view
+namespace TheSurvivorsOfCsharp.view
 {
     public struct Comment
     {

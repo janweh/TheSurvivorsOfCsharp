@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using TheSurvivorsOfCsharp.Data;
+using TheSurvivorsOfCsharp.Helpers;
 using TheSurvivorsOfCsharp.Model;
-using WindowsFormsApp15.view;
+using TheSurvivorsOfCsharp.view;
 
 namespace TheSurvivorsOfCsharp.Pages.Courses
 {
@@ -94,7 +94,7 @@ namespace TheSurvivorsOfCsharp.Pages.Courses
                     {
                         Username = _context.Student.FirstOrDefault(s => s.ID == rating.StudentID).UserName,
                         Date = rating.Date.ToString("d"),
-                        Rating = rating.ToString() + "/5",
+                        Rating = rating.OverallRating.ToString(),
                         Text = rating.Comment
                     }) ;
                 }
@@ -109,6 +109,10 @@ namespace TheSurvivorsOfCsharp.Pages.Courses
             Learned = (learned / numberOfRatings).ToString("0.##") + "/5";
             Interesting = (interesting / numberOfRatings).ToString("0.##") + "/5";
             Presented = (presented / numberOfRatings).ToString("0.##") + "/5";
+        }
+        public string SemesterName(Semester s)
+        {
+            return s.GetDescription();
         }
     }
 }

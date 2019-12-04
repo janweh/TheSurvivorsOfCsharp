@@ -51,7 +51,7 @@
 
             <div class="form-group">
                 <label asp-for="Rating.Semester" class="control-label"></label>
-                <input asp-for="Rating.Semester" class="form-control" />
+                <select asp-for="Rating.Semester" class="form-control" asp-items="ViewBag.Semester"></select>
                 <span asp-validation-for="Rating.Semester" class="text-danger"></span>
             </div>
             <div class="form-group">
