@@ -17,19 +17,19 @@
         <div class="row">
             <form>
                University:
-                <select  asp-for="University" asp-items="Model.Universities">
+                <select  class="unidrop" asp-for="University" asp-items="Model.Universities">
                     <option value=""></option>
                 </select>
                 Major:
-                <select asp-for="Major" asp-items="Model.Majors">
+                <select class="majordrop" asp-for="Major" asp-items="Model.Majors">
                     <option value=""></option>
                 </select>
                 Lecturer:
-                <select asp-for="Lecturer" asp-items="Model.Lecturers">
+                <select class="lecturerdrop" asp-for="Lecturer" asp-items="Model.Lecturers">
                     <option value=""></option>
                 </select> 
                 
-                <input type="text" id="searchrec" class="search" placeholder="Search data.." />
+                <input type="search" id="searchrec" class="search" placeholder="Search data.." />
             </form>
         </div>
     </div>
@@ -81,3 +81,22 @@
     });
 
 </script>
+
+<script>
+    $(document).ready(function () {
+        $(".unidrop").on("change", function () {
+            var datasearch = $(this).val().toLowerCase();
+            $("#table1 #1").each(function () {
+                var stringdata = $(this).text().toLowerCase();
+                if (stringdata.indexOf(datasearch) === -1) {
+                    $(this).hide();
+                }
+                else {
+                    $(this).show();
+                }
+            });
+        });
+    });
+
+</script>
+
