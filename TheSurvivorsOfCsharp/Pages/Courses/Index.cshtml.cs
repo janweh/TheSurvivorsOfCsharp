@@ -13,9 +13,9 @@ namespace TheSurvivorsOfCsharp.Pages.Courses
 {
     public class IndexModel : PageModel
     {
-        private readonly TheSurvivorsOfCsharp.Data.TheSurvivorsOfCsharpContext _context;
+        private readonly Data.TheSurvivorsOfCsharpContext _context;
 
-        public IndexModel(TheSurvivorsOfCsharp.Data.TheSurvivorsOfCsharpContext context)
+        public IndexModel(Data.TheSurvivorsOfCsharpContext context)
         {
             _context = context;
         }
