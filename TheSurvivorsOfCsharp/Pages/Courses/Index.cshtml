@@ -1,90 +1,70 @@
 ﻿@page "Home"
 @model TheSurvivorsOfCsharp.Pages.Courses.IndexModel
-
 @*add more data here:<p>
         <a asp-page="Create">Create New</a>
     </p>*@
-    
-    
-        <div class="text-center mt-4 mb-3">
-            <h1>Quick Search</h1>
-        </div>
-        <hr />
-        
-    
 
-    <div class="container">
-        <div class="row">
-            <form>
-               University:
-                <select  class="unidrop" asp-for="University" asp-items="Model.Universities">
-                    <option value=""></option>
-                </select>
-                Major:
-                <select class="majordrop" asp-for="Major" asp-items="Model.Majors">
-                    <option value=""></option>
-                </select>
-                Lecturer:
-                <select class="lecturerdrop" asp-for="Lecturer" asp-items="Model.Lecturers">
-                    <option value=""></option>
-                </select> 
-                
-                <input type="search" id="searchrec" class="search" placeholder="Search data.." />
-            </form>
-        </div>
+
+<div class="text-center mt-4 mb-3">
+    <h1>Quick Search</h1>
+</div>
+<hr />
+
+
+
+<div class="container">
+    <div class="row">
+        <form>
+            University:
+            <select class="unidrop" asp-for="University" asp-items="Model.Universities">
+                <option value=""></option>
+            </select>
+            Major:
+            <select class="majordrop" asp-for="Major" asp-items="Model.Majors">
+                <option value=""></option>
+            </select>
+            Lecturer:
+            <select class="lecturerdrop" asp-for="Lecturer" asp-items="Model.Lecturers">
+                <option value=""></option>
+            </select>
+            <input type="submit" value="Filter" id="hide" />
+            <input type="search" id="searchrec" class="search" placeholder="Search data.." />
+        </form>
     </div>
-    <table class="table" id="table1">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Since</th>
-                <th>University</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.Course)
-            {
-                <tr id="1">
-                    <td><a asp-page="./Details" asp-route-id="@item.ID">@item.Name</a></td>
-                    <td>
-                        @{
-                            string semester = Model.SemesterName(item.Since);
-                        }
-                        @semester
-                    </td>
-                    <td>@item.University.Name</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-    
-
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-<script>
-    $(document).ready(function ()
-    {
-        $(".search").on("keyup", function ()
+</div>
+<table class="table" id="table1">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Since</th>
+            <th>University</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Course)
         {
-            var datasearch = $(this).val().toLowerCase();
-            $("#table1 #1").each(function ()
-            {
-                var stringdata = $(this).text().toLowerCase();
-                if (stringdata.indexOf(datasearch) === -1) {
-                    $(this).hide();
-                }
-                else {
-                    $(this).show();
-                }
-            });
-        });
-    });
+            <tr id="1">
+                <td><a asp-page="./Details" asp-route-id="@item.ID">@item.Name</a></td>
+                <td>
+                    @{
+                        string semester = Model.SemesterName(item.Since);
+                    }
+                    @semester
+                </td>
+                <td>@item.University.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>
 
-</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
 
 <script>
     $(document).ready(function () {
-        $(".unidrop").on("change", function () {
+        $(".search").on("keyup", function () {
             var datasearch = $(this).val().toLowerCase();
             $("#table1 #1").each(function () {
                 var stringdata = $(this).text().toLowerCase();
@@ -98,5 +78,30 @@
         });
     });
 
+</script>
+
+
+<script>
+    $(document).ready(function () {
+        $(".unidrop").on("change", function () {
+            $("#hide").click();
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $(".majordrop").on("change", function () {
+            $("#hide").click();
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $(".lecturerdrop").on("change", function () {
+            $("#hide").click();
+        });
+    });
 </script>
 

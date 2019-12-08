@@ -34,6 +34,10 @@
     }
 }
 
+#hide {
+  visibility: hidden
+}
+
 .carousel-caption {
     position: absolute;
     right: 0;
