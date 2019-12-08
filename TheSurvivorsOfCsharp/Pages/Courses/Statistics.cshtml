@@ -1,0 +1,310 @@
+﻿@page
+@model TheSurvivorsOfCsharp.Pages.Courses.StatisticsModel
+
+    <h1>Statistics</h1>
+    <div>
+        <div>
+            <div>
+                <h4>@Model.Course.Name</h4>
+            </div>
+            <div style="font-size:20px">
+                <a asp-page="./Details" asp-route-id="@Model.Course.ID">Back to Details</a>
+            </div>
+        </div>
+        </div>
+        <div class="container">
+            <div class="row" style="background-color:white">
+                <div style="float:left">
+                    <h4 style="margin-left:200px">Overall Rating</h4>
+                    <div id="chart1"></div>
+                </div>
+                <div style="float:left; margin-left:50px; margin-top:130px">
+                    <ul style="list-style: none; margin: 0; padding: 0;">
+                        <li>@Model.overallAverage</li>
+                        <li>@Model.overallMedian</li>
+                        <li>@Model.overallMostCommon</li>
+                        <li>@Model.overallVariance</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row" style="background-color:white">
+                <div style="float:left">
+                    <h4 style="margin-left:200px">Organized Rating</h4>
+                    <div id="chart2"></div>
+                </div>
+                <div style="float:left; margin-left:50px; margin-top:130px">
+                    <ul style="list-style: none; margin: 0; padding: 0;">
+                        <li>@Model.organizedAverage</li>
+                        <li>@Model.organizedMedian</li>
+                        <li>@Model.organizedMostCommon</li>
+                        <li>@Model.organizedVariance</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row" style="background-color:white">
+                <div style="float:left">
+                    <h4 style="margin-left:200px">Learned Rating</h4>
+                    <div id="chart3"></div>
+                </div>
+                <div style="float:left; margin-left:50px; margin-top:130px">
+                    <ul style="list-style: none; margin: 0; padding: 0;">
+                        <li>@Model.learnedAverage</li>
+                        <li>@Model.learnedMedian</li>
+                        <li>@Model.learnedMostCommon</li>
+                        <li>@Model.learnedVariance</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row" style="background-color:white">
+                <div style="float:left">
+                    <h4 style="margin-left:200px">Interesting Rating</h4>
+                    <div id="chart4"></div>
+                </div>
+                <div style="float:left; margin-left:50px; margin-top:130px">
+                    <ul style="list-style: none; margin: 0; padding: 0;">
+                        <li>@Model.interestingAverage</li>
+                        <li>@Model.interestingMedian</li>
+                        <li>@Model.interestingMostCommon</li>
+                        <li>@Model.interestingVariance</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row" style="background-color:white">
+                <div style="float:left">
+                    <h4 style="margin-left:200px">Presented Rating</h4>
+                    <div id="chart5"></div>
+                </div>
+                <div style="float:left; margin-left:50px; margin-top:130px">
+                    <ul style="list-style: none; margin: 0; padding: 0;">
+                        <li>@Model.presentedAverage</li>
+                        <li>@Model.presentedMedian</li>
+                        <li>@Model.presentedMostCommon</li>
+                        <li>@Model.presentedVariance</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row" style="background-color:white">
+                <div style="float:left">
+                    <h4 style="margin-left:200px">Contact Hours Rating</h4>
+                    <div id="chart6"></div>
+                </div>
+                <div style="float:left; margin-left:50px; margin-top:130px">
+                    <ul style="list-style: none; margin: 0; padding: 0;">
+                        <li>@Model.contactHoursAverage</li>
+                        <li>@Model.contactHoursMedian</li>
+                        <li>@Model.contactHoursMostCommon</li>
+                        <li>@Model.contactHoursVariance</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row" style="background-color:white">
+                <div style="float:left">
+                    <h4 style="margin-left:200px">Self Study Hours Rating</h4>
+                    <div id="chart7"></div>
+                </div>
+                <div style="float:left; margin-left:50px; margin-top:130px">
+                    <ul style="list-style: none; margin: 0; padding: 0;">
+                        <li>@Model.selfStudyHoursAverage</li>
+                        <li>@Model.selfStudyHoursMedian</li>
+                        <li>@Model.selfStudyHoursMostCommon</li>
+                        <li>@Model.selfStudyHoursVariance</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row" style="background-color:white">
+                <div style="float:left">
+                    <h4 style="margin-left:200px">Grades Rating</h4>
+                    <div id="chart8"></div>
+                </div>
+                <div style="float:left; margin-left:50px; margin-top:130px">
+                    <ul style="list-style: none; margin: 0; padding: 0;">
+                        <li>@Model.gradesAverage</li>
+                        <li>@Model.gradesMedian</li>
+                        <li>@Model.gradesMostCommon</li>
+                        <li>@Model.gradesVariance</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row" style="background-color:white">
+                <div style="float:left">
+                    <h4 style="margin-left:200px">Passed</h4>
+                    <div id="chart9"></div>
+                </div>
+            </div>
+        </div>
+
+        @section scripts{
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+            <script>
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            //OVERALL
+            var arr = [
+                ['Rating given', 'Rating Amount'],
+                ['1', { v: @Model.overallRatings[0]}],
+                ['2', { v: @Model.overallRatings[1]}],
+                ['3', { v: @Model.overallRatings[2]}],
+                ['4', { v: @Model.overallRatings[3]}],
+                ['5', { v: @Model.overallRatings[4]}]
+            ];
+            var data = google.visualization.arrayToDataTable(arr, false);
+            var option = {
+                title: 'Overall Ratings',
+                width: 600,
+                height: 500
+            };
+            var chart = new google.visualization.ColumnChart(document.getElementById('chart1'));
+            chart.draw(data, option);
+
+            //ORGANIZED
+            var arrOrganized = [
+                ['Rating given', 'Rating Amount'],
+                ['1', { v: @Model.organizedRatings[0]}],
+                ['2', { v: @Model.organizedRatings[1]}],
+                ['3', { v: @Model.organizedRatings[2]}],
+                ['4', { v: @Model.organizedRatings[3]}],
+                ['5', { v: @Model.organizedRatings[4]}]
+            ];
+            var dataOrganized = google.visualization.arrayToDataTable(arrOrganized, false);
+            var optionOrganized = {
+                title: 'Organized Ratings',
+                width: 600,
+                height: 500
+            };
+            var chartOrganized = new google.visualization.ColumnChart(document.getElementById('chart2'));
+            chartOrganized.draw(dataOrganized, optionOrganized);
+
+            //LEARNED
+            var arrLearned = [
+                ['Rating given', 'Rating Amount'],
+                ['1', { v: @Model.learnedRatings[0]}],
+                ['2', { v: @Model.learnedRatings[1]}],
+                ['3', { v: @Model.learnedRatings[2]}],
+                ['4', { v: @Model.learnedRatings[3]}],
+                ['5', { v: @Model.learnedRatings[4]}]
+            ];
+            var dataLearned = google.visualization.arrayToDataTable(arrLearned, false);
+            var optionLearned = {
+                title: 'Learned Ratings',
+                width: 600,
+                height: 500
+            };
+            var chartLearned = new google.visualization.ColumnChart(document.getElementById('chart3'));
+            chartLearned.draw(dataLearned, optionLearned);
+
+            //INTERESTING
+            var arrInteresting = [
+                ['Rating given', 'Rating Amount'],
+                ['1', { v: @Model.interestingRatings[0]}],
+                ['2', { v: @Model.interestingRatings[1]}],
+                ['3', { v: @Model.interestingRatings[2]}],
+                ['4', { v: @Model.interestingRatings[3]}],
+                ['5', { v: @Model.interestingRatings[4]}]
+            ];
+            var dataInteresting = google.visualization.arrayToDataTable(arrInteresting, false);
+            var optionInteresting = {
+                title: 'Interesting Ratings',
+                width: 600,
+                height: 500
+            };
+            var chartInteresting = new google.visualization.ColumnChart(document.getElementById('chart4'));
+            chartInteresting.draw(dataInteresting, optionInteresting);
+
+            //PRESENTED
+            var arrPresented = [
+                ['Rating given', 'Rating Amount'],
+                ['1', { v: @Model.presentedRatings[0]}],
+                ['2', { v: @Model.presentedRatings[1]}],
+                ['3', { v: @Model.presentedRatings[2]}],
+                ['4', { v: @Model.presentedRatings[3]}],
+                ['5', { v: @Model.presentedRatings[4]}]
+            ];
+            var dataPresented = google.visualization.arrayToDataTable(arrPresented, false);
+            var optionPresented = {
+                title: 'Presented Ratings',
+                width: 600,
+                height: 500
+            };
+            var chartPresented = new google.visualization.ColumnChart(document.getElementById('chart5'));
+            chartPresented.draw(dataPresented, optionPresented);
+
+            //CONTACT HOURS
+            var arrContactHours = [
+                ['Contact Hours given', 'Rating Amount'],
+                ['0-2', { v: @Model.contactHours[0]}],
+                ['3-4', { v: @Model.contactHours[1]}],
+                ['5-6', { v: @Model.contactHours[2]}],
+                ['7-8', { v: @Model.contactHours[3]}],
+                ['8+', { v: @Model.contactHours[4]}]
+            ];
+            var dataContactHours = google.visualization.arrayToDataTable(arrContactHours, false);
+            var optionContactHours = {
+                title: 'Contact Hours Ratings',
+                width: 600,
+                height: 500
+            };
+            var chartContactHours = new google.visualization.BarChart(document.getElementById('chart6'));
+            chartContactHours.draw(dataContactHours, optionContactHours);
+
+            //SELF STUDY HOURS
+            var arrSelfStudyHours = [
+                ['SelfStudy Hours given', 'Rating Amount'],
+                ['0-2', { v: @Model.selfStudyHours[0]}],
+                ['3-4', { v: @Model.selfStudyHours[1]}],
+                ['5-6', { v: @Model.selfStudyHours[2]}],
+                ['7-8', { v: @Model.selfStudyHours[3]}],
+                ['8+', { v: @Model.selfStudyHours[4]}]
+            ];
+            var dataSelfStudyHours = google.visualization.arrayToDataTable(arrSelfStudyHours, false);
+            var optionSelfStudyHours = {
+                title: 'SelfStudy Hours Ratings',
+                width: 600,
+                height: 500
+            };
+            var chartSelfStudyHours = new google.visualization.BarChart(document.getElementById('chart7'));
+            chartSelfStudyHours.draw(dataSelfStudyHours, optionSelfStudyHours);
+
+            //GRADES
+            var arrGrades = [
+                ['Grade received', 'Grade Amount'],
+                ['1', { v: @Model.grades[0]}],
+                ['2', { v: @Model.grades[1]}],
+                ['3', { v: @Model.grades[2]}],
+                ['4', { v: @Model.grades[3]}],
+                ['5', { v: @Model.grades[4]}],
+                ['6', { v: @Model.grades[5]}],
+                ['7', { v: @Model.grades[6]}],
+                ['8', { v: @Model.grades[7]}],
+                ['9', { v: @Model.grades[8]}],
+                ['10', { v: @Model.grades[9]}],
+            ];
+            var dataGrades = google.visualization.arrayToDataTable(arrGrades, false);
+            var optionGrades = {
+                title: 'Grades received',
+                width: 600,
+                height: 500
+            };
+            var chartGrades = new google.visualization.ColumnChart(document.getElementById('chart8'));
+            chartGrades.draw(dataGrades, optionGrades);
+
+            //PASSED
+            var arrPassed = [
+                ['Passing status', 'Amount of students'],
+                ['Passed first try', { v: @Model.gradesAndPassed[0]}],
+                ['Passed second try', { v: @Model.gradesAndPassed[1]}],
+                ['Failed', { v: @Model.gradesAndPassed[2]}]
+            ];
+            var dataPassed = google.visualization.arrayToDataTable(arrPassed, false);
+            var optionPassed = {
+                title: 'SelfStudy Hours Ratings',
+                width: 600,
+                height: 500
+            };
+            var chartPassed = new google.visualization.PieChart(document.getElementById('chart9'));
+            chartPassed.draw(dataPassed, optionPassed);
+        }
+            </script>
+        }
