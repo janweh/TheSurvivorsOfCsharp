@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -68,7 +69,7 @@ namespace TheSurvivorsOfCsharp.Pages.Ratings
             }
 
             Rating.CourseID = Course.ID;
-            Rating.StudentID = 1;
+            Rating.StudentID = (int)HttpContext.Session.GetInt32("ID");
             Rating.Date = DateTime.Now;
             _context.Rating.Add(Rating);
             await _context.SaveChangesAsync();

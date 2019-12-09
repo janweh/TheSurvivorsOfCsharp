@@ -40,7 +40,7 @@ namespace TheSurvivorsOfCsharp.Pages.Students
             else
             {
                 HttpContext.Session.SetString("username", acc.UserName);
-                HttpContext.Session.SetString("email", acc.Email);
+                HttpContext.Session.SetInt32("ID", acc.ID);
                 return RedirectToPage("/Courses/EntryPage");
             }
         }

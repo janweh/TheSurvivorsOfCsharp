@@ -1,5 +1,7 @@
 ﻿@page
 @model TheSurvivorsOfCsharp.Pages.Courses.DetailsModel
+@using Microsoft.AspNetCore.Http
+
 
 @{
     ViewData["Title"] = "Details";
@@ -24,10 +26,10 @@
         <dd class="col-sm-8">
             <ul style="list-style: none; margin: 0; padding: 0;">
                 @foreach (var lecturer in Model.Lecturers)
-                {   
-                <li>
-                    @lecturer.TitleAndName
-                </li>
+                {
+                    <li>
+                        @lecturer.TitleAndName
+                    </li>
                 }
             </ul>
         </dd>
@@ -98,13 +100,14 @@
     </dl>
 </div>
 <div>
-    <a asp-page="../Ratings/Create" asp-route-id="@Model.Course.ID">Rate this Course</a> | 
-    <a asp-page="./Index">Back to List</a>
+    @if (HttpContext.Session.GetString("username") != null) {
+        <a asp-page="../Ratings/Create" asp-route-id="@Model.Course.ID">Rate this Course</a>} |
+    <a asp-page="./EntryPage">Back to List</a>
 </div>
 <div style="width:1000px">
     <h4>Comments</h4>
     <ul style="list-style: none;">
-        @foreach(var comment in Model.Comments)
+        @foreach (var comment in Model.Comments)
         {
             <li>
                 <p style="text-align:left;">
