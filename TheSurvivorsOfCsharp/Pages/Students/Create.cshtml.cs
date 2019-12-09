@@ -40,7 +40,7 @@ namespace TheSurvivorsOfCsharp.Pages.Students
             _context.Student.Add(Student);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("/Courses/EntryPage");
         }
     }
 }

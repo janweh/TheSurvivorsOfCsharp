@@ -15,23 +15,23 @@ namespace TheSurvivorsOfCsharp.Data
         }
 
 
-        public DbSet<TheSurvivorsOfCsharp.Model.Major> Major { get; set; }
+        public DbSet<Major> Major { get; set; }
 
-        public DbSet<TheSurvivorsOfCsharp.Model.Rating> Rating { get; set; }
+        public DbSet<Rating> Rating { get; set; }
 
-        public DbSet<TheSurvivorsOfCsharp.Model.Student> Student { get; set; }
+        public DbSet<Student> Student { get; set; }
 
-        public DbSet<TheSurvivorsOfCsharp.Model.University> University { get; set; }
+        public DbSet<University> University { get; set; }
 
-        public DbSet<TheSurvivorsOfCsharp.Model.CourseMajor> CourseMajor { get; set; }
+        public DbSet<CourseMajor> CourseMajor { get; set; }
 
-        public DbSet<TheSurvivorsOfCsharp.Model.MajorUniversity> MajorUniversity { get; set; }
+        public DbSet<MajorUniversity> MajorUniversity { get; set; }
 
-        public DbSet<TheSurvivorsOfCsharp.Model.Lecturer> Lecturer { get; set; }
+        public DbSet<Lecturer> Lecturer { get; set; }
 
-        public DbSet<TheSurvivorsOfCsharp.Model.Course> Course { get; set; }
+        public DbSet<Course> Course { get; set; }
 
-        public DbSet<TheSurvivorsOfCsharp.Model.CourseLecturer> CourseLecturer { get; set; }
+        public DbSet<CourseLecturer> CourseLecturer { get; set; }
 
     }
 }

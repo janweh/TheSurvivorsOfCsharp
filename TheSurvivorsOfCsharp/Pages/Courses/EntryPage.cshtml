@@ -1,13 +1,19 @@
-﻿@page "Home"
+﻿@page "EntryPage"
 @model TheSurvivorsOfCsharp.Pages.Courses.IndexModel
+@using Microsoft.AspNetCore.Http
+
 @*add more data here:<p>
         <a asp-page="Create">Create New</a>
     </p>*@
 
 
-<div class="text-center mt-4 mb-3">
-    <h1>Quick Search</h1>
-</div>
+    <div class="text-center mt-4 mb-3">
+        @if(HttpContext.Session.GetString("username") != null){
+        <h2>Welcome @HttpContext.Session.GetString("username")</h2>
+        }
+        <h1>Quick Search</h1>
+        <br />
+    </div>
 <hr />
 
 
@@ -16,15 +22,15 @@
     <div class="row">
         <form>
             University:
-            <select class="unidrop" asp-for="University" asp-items="Model.Universities">
+            <select class="dropdovn" asp-for="University" asp-items="Model.Universities">
                 <option value=""></option>
             </select>
             Major:
-            <select class="majordrop" asp-for="Major" asp-items="Model.Majors">
+            <select class="dropdovn" asp-for="Major" asp-items="Model.Majors">
                 <option value=""></option>
             </select>
             Lecturer:
-            <select class="lecturerdrop" asp-for="Lecturer" asp-items="Model.Lecturers">
+            <select class="dropdovn" asp-for="Lecturer" asp-items="Model.Lecturers">
                 <option value=""></option>
             </select>
             <input type="submit" value="Filter" id="hide" />
@@ -60,8 +66,6 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-
-
 <script>
     $(document).ready(function () {
         $(".search").on("keyup", function () {
@@ -80,28 +84,12 @@
 
 </script>
 
-
 <script>
     $(document).ready(function () {
-        $(".unidrop").on("change", function () {
+        $(".dropdovn").on("change", function () {
             $("#hide").click();
         });
     });
 </script>
 
-<script>
-    $(document).ready(function () {
-        $(".majordrop").on("change", function () {
-            $("#hide").click();
-        });
-    });
-</script>
-
-<script>
-    $(document).ready(function () {
-        $(".lecturerdrop").on("change", function () {
-            $("#hide").click();
-        });
-    });
-</script>
 

@@ -1,0 +1,49 @@
+﻿@page
+@model TheSurvivorsOfCsharp.Pages.Students.LoginModel
+
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Login</title>
+
+    </head>
+
+    <body class="container row1">
+        <br />
+        <br />
+        <br />
+        <h3>login</h3>
+        <br />
+        <form method="post" asp-page="login">
+            <table>
+
+                <tr>
+
+                    <td>
+                        Username
+                    </td>
+                    <td>
+                        <input asp-for="@Model.student.UserName" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td>
+                        <input type="password" asp-for="@Model.student.Password" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        <input type="submit" value="login" />
+                        <br />
+                        <a asp-page="/students/create">Register</a>
+                    </td>
+
+                </tr>
+
+            </table>
+        </form>
+    </body>
+</html>

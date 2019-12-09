@@ -1,0 +1,69 @@
+﻿@page
+@model TheSurvivorsOfCsharp.Pages.ProfileModel
+@{
+    ViewData["Title"] = "Profile";
+}
+
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Profile</title>
+
+    </head>
+
+    <body class="container row1">
+        <br />
+        <br />
+        <br />
+        <h3>Profile settings</h3>
+        <br />
+        <form method="post" asp-page="profile">
+            <table>
+
+                <tr>
+
+                    <td>
+                        Username
+                    </td>
+                    <td>
+                        <input asp-for="@Model.student.UserName" />
+                        <input type="hidden" asp-for="@Model.student.ID" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td>
+                        <input type="password" asp-for="@Model.student.Password" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>
+                        <input type="password" asp-for="@Model.student.Email" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>University</td>
+                    <td>
+                        <input type="password" asp-for="@Model.student.University" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>AreaOfStudies</td>
+                    <td>
+                        <input type="password" asp-for="@Model.student.AreaOfStudies" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        <input type="submit" value="save" />
+                    </td>
+
+                </tr>
+
+            </table>
+        </form>
+    </body>
+    </html>
+

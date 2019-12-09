@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using TheSurvivorsOfCsharp.Data;
 using TheSurvivorsOfCsharp.Model;
 
+
 namespace TheSurvivorsOfCsharp.Pages.Students
 {
     public class IndexModel : PageModel
@@ -20,6 +21,7 @@ namespace TheSurvivorsOfCsharp.Pages.Students
         }
 
         public IList<Student> Student { get;set; }
+
 
         public async Task OnGetAsync()
         {

@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -8,7 +10,15 @@
     <link rel="stylesheet" href="~/css/UniversityAdvisor.css" />
 </head>
 <body>
-    
+
+    @{
+        var d = new Dictionary<string, string>
+{
+           { "key1", "value1" },
+           { "key2", "value2" }
+        };
+    }
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="/">University Advisor</a>
@@ -18,7 +28,7 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" asp-page="courses/index" >Home</a>
+                        <a class="nav-link" asp-page="/Courses/EntryPage">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/About">About</a>
@@ -29,19 +39,29 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/contact">Contact</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Login">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-page="students/create">Register</a>
-                    </li>
+                    @if (Context.Session.GetString("username") == null)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="/students/Login">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-page="/students/create">Register</a>
+                        </li>
+                    }
+                    @if (Context.Session.GetString("username") != null)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" asp-page="/Courses/EntryPage" asp-page-handler="Logout">Logout</a>
+                        </li>
+                    }
+
                 </ul>
             </div>
         </div>
     </nav>
-    
 
-    
+
+
     @RenderBody()
 
 

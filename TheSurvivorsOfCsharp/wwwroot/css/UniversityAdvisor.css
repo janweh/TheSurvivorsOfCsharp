@@ -93,3 +93,11 @@
     width: 100%;
     max-height: 300px;
 }
+
+.row2 {
+    display: -ms-flexbox;
+    position: center;
+    margin-right: 35%;
+    margin-left: 35%;
+    align-items: center !important;
+}
