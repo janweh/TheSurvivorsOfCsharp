@@ -25,6 +25,8 @@ namespace TheSurvivorsOfCsharp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSession();
+
             services.AddRazorPages();
 
             services.AddDbContext<TheSurvivorsOfCsharpContext>(options =>
@@ -32,13 +34,14 @@ namespace TheSurvivorsOfCsharp
 
             services.AddMvc().AddRazorPagesOptions(options =>
             {
-                options.Conventions.AddPageRoute("/Courses/Index", "");
+                options.Conventions.AddPageRoute("/Courses/EntryPage", "");
             });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -49,11 +52,13 @@ namespace TheSurvivorsOfCsharp
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
+            app.UseSession();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
+            
+            
 
             app.UseAuthorization();
 

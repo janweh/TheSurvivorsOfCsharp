@@ -20,6 +20,12 @@ namespace TheSurvivorsOfCsharp.Pages.Courses
             _context = context;
         }
 
+        public IActionResult OnGetLogout()
+        {
+            HttpContext.Session.Remove("username");
+            return RedirectToPage("/Courses/EntryPage");
+        }
+
         public IList<Course> Course { get;set; }
         [BindProperty(SupportsGet = true)]
         public string SearchString { get; set; }
